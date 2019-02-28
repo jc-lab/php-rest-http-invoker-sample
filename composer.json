@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jc-lab/php-rest-http-invoker": "^1.0"
+    }
+}
