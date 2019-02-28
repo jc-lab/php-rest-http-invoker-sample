@@ -1,20 +1,14 @@
 <?php
-
-require_once("./php-restclient/restclient.php");
-require_once("./php-rest-http-invoker/RestHttpInvokerProxyFactory.php");
+require_once("vendor/autoload.php");
 
 require_once "TestService.php";
 
-$factory = new \jclab\RestHttpInvokerProxyFactory();
+$factory = new \jclab\PhpRestHttpInvoker\RestHttpInvokerProxyFactory();
 $factory->setServiceUrl("http://127.0.0.1:9999/api/test");
 $factory->setServiceInterface('TestService');
-/*
-$factory->addMethod("test_1", null, []);
-$factory->addMethod("test_2", null, ["int"]);
-$factory->addMethod("test_3", null, ["string"]);
-$factory->addMethod("test_4", null, []);
-$factory->addMethod("test_5", null, []);
-*/
+
+$factory->setMethodParemeterTypes("test_5", ['long', 'long']);
+
 $object = $factory->getProxyObject();
 
 class Test {
